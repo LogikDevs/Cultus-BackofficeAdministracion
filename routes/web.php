@@ -25,6 +25,22 @@ use App\Http\Middleware\Autenticacion;
 
     Route::get('/home', function(){
         return view('home');
+    });//->middleware(Autenticacion::class);
+
+    Route::get('/users', function(){
+        return view('users');
+    });
+
+    Route::get('/posts', function(){
+        return view('posts');
+    });
+
+    Route::get('/events', function(){
+        return view('events');
+    });
+
+    Route::get('/groups', function(){
+        return view('groups');
     });
 /*
     Route::get('/login', function(){
@@ -42,8 +58,8 @@ use App\Http\Middleware\Autenticacion;
     Route::get('/logout', [LoginController::class,'Logout']);
 */
 
-    //Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
-    //Route::post('/register', [RegisterController::class, 'Register']);
+    Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'Register']);
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
