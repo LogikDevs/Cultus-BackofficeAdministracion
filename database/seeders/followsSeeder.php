@@ -1,10 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\follows;
-use App\Models\user;
 
 use Illuminate\Database\Seeder;
+use App\Models\follows;
+use App\Models\user;
 
 class followsSeeder extends Seeder
 {

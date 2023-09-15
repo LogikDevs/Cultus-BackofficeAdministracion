@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\country;
+use App\Models\integrates;
 
-class countrySeeder extends Seeder
+class integratesSeeder extends Seeder
 {
     public function run()
     {
-        country::factory(100)->create();
+        integrates::factory(100)->create();
     }
 }
