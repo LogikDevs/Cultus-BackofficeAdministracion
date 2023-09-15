@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\country;
+use App\Models\Comments;
 
-class countrySeeder extends Seeder
+class CommentsSeeder extends Seeder
 {
     public function run()
     {
-        country::factory(100)->create();
+        Comments::factory(100)->create();
     }
 }
