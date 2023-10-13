@@ -14,7 +14,7 @@ class PostFactory extends Factory
         return [
             'fk_id_user' => random_int(1, 10),
             'fk_id_event' => random_int(1, 10),
-            'text' => $this->faker->paragraph(),
+            'text' => $this->faker->paragraph(255),
             'latitud' => $this->faker->latitude(),
             'longitud' => $this->faker->longitude(),
             'date' => $this->faker->dateTime()
