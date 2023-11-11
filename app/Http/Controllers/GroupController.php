@@ -22,11 +22,27 @@ class GroupController extends Controller
 
     public function index(){
         return view('groups.index');
-       }
+    }
     
-        public function destroy(groups $group){
-          $group->delete();
-          return view('groups.index')->with('success', 'Grupo eliminado exitosamente');
-          }   
+    public function destroy(groups $group){
+        $group->delete();
+        return view('groups.index')->with('success', 'Grupo eliminado exitosamente');
+    }   
    
+    public function edit(groups $group){
+        return view('groups.edit', compact('group'));
+    }
+
+    public function update(Request $request, groups $group){
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'privacy' => 'required',
+        ]);
+        $group->name = $request->name;
+        $group->description = $request->description;
+        $group->privacy = $request->privacy;
+        $group->save();
+        return view('groups.index')->with('success', 'Grupo actualizado exitosamente');
+    }
 }
