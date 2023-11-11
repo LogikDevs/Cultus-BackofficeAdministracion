@@ -20,7 +20,9 @@ use App\Http\Middleware\Autenticacion;
     Route::get('/user', [UserController::class, 'ListUser'])->name('users.user');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::get('/users/email', [UserController::class, 'ListUserMail'])->name('users.email');
-
+    Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
+ 
     Route::get('/posts', function(){
         return view('posts');
     });
