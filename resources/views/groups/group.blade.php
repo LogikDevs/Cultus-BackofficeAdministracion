@@ -67,7 +67,7 @@
             <ul class="group-list">
                 <li class="group-item">
                     <span class="group-label">ID:</span>
-                    <span class="group-value">{{ $group->id }}</span>
+                    <span class="group-value">{{ $group->id_group }}</span>
                 </li>
                 <li class="group-item">
                     <span class="group-label">Nombre:</span>
@@ -95,6 +95,11 @@
                     <p class="group-no-image">No hay imagen disponible.</p>
                 @endif
             </div>
+            <form action="{{ route('groups.destroy', ['group' => $group->id_group]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Grupo?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
+            </form>
         </div>
        @endif
     </div>
