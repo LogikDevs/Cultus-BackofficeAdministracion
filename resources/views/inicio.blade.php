@@ -59,9 +59,9 @@ nav ul li a:hover {
 <nav>
     <ul>
         <li><a href="{{ route('users.index') }}">Menu de usuarios</a></li>
+        <li><a href="{{ route('groups.index') }}">Menu de grupos</a></li>
         <li><a href="{{ route('users.userslist') }}">Menu de posts</a></li>
-        <li><a href="{{ route('users.userslist') }}">Menu de eventos</a></li>
-        <li><a href="{{ route('users.userslist') }}">Menu de grupos</a></li>
+        <li><a href="{{ route('users.userslist') }}">Menu de eventos</a></li>        
     </ul>
 </nav>
 
