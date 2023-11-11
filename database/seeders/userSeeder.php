@@ -17,7 +17,7 @@ class userSeeder extends Seeder
             \App\Models\user::factory()
             ->has(Country::factory(), 'homeland')
             ->has(Country::factory(), 'residence')
-            ->count(10)
+            ->count(100)
             ->create();     
 
             \App\Models\User::factory(1)

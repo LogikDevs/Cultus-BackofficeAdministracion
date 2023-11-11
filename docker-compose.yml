@@ -2,7 +2,7 @@ version : "3.5"
 services:
   mysql:
     image: mysql:8
-    container_name: cultus_mysql 
+    container_name: mysql 
     ports:
       - "3306:3306"
     command: --init-file /data/application/init.sql
@@ -12,11 +12,11 @@ services:
     volumes:
       - "./init.sql:/data/application/init.sql"
       - "./mysql:/var/lib/mysql"
-  backoffice:
+  app:
     depends_on:  
       - mysql
     image: ggmartinez/laravel:php-82
-    container_name: cultus_backoffice 
+    container_name: backoffice_app
     ports:
       - "8005:8000"
     volumes:
