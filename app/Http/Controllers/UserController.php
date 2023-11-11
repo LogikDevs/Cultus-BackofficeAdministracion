@@ -44,4 +44,24 @@ class UserController extends Controller
     $user->delete();
     return view('users.index')->with('success', 'Usuario eliminado exitosamente');
     }   
+
+    public function edit(User $user){
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user){
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'age' => 'required | integer',
+            'email' => 'required| email',
+        ]);
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->age = $request->age;
+        $user->email = $request->email;
+
+        $user->update();
+        return view('users.edit', compact('user'))->with('success', 'Usuario actualizado exitosamente');
+    }
 }
