@@ -51,8 +51,6 @@
     <div class="usuario-container">
     <nav>
             <ul>
-                <li><a href="{{ route('users.userslist') }}">Listar Todos los Usuarios</a></li>
-                <li>
                     <form action="{{ route('users.user') }}" method="get">
                         @csrf
                         <label for="user_id">Mostrar Usuario por ID:</label>

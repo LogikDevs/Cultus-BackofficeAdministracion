@@ -19,14 +19,24 @@ class UserController extends Controller
     public function ListUser(request $request){
         {
             $user = null;
-        
+            
             if ($request->has('id')) {
                 $id = $request->input('id');
                 $user = User::find($id);
 
             }
-        
+            
             return view('users.user', compact('user'));
+        }
+    }
+
+    public function ListUserMail(request $request){
+        {
+            $user = null;
+           
+            $email = $request->input('email');
+            $users = User::where('email', 'LIKE', "%{$email}%")->paginate(30);
+            return view('users.email', compact('users'));
         }
     }
 
