@@ -38,7 +38,7 @@
                     <th>Age</th>
                     <th>Gender</th>                    
                     <th>Email</th>
-
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +50,12 @@
                         <td>{{ $user->age}}</td>
                         <td>{{ $user->gender}}</td>
                         <td>{{ $user->email }}</td>
+                        <td>
+                        <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger mt-3">Eliminar Usuario</button>
+                         </form>     
                     </tr>
                 @endforeach
             </tbody>
