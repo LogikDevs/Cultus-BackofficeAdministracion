@@ -94,7 +94,14 @@
                 @else
                     <p class="usuario-no-image">No hay imagen de perfil disponible.</p>
                 @endif
-            
+
+                <form action="{{ route('users.edit', ['user' => $user->id]) }}" method="put">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger mt-3">Editar Usuario</button>
+                </form>
+
+
                 <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                 @csrf
                 @method('DELETE')

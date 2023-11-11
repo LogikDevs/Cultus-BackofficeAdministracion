@@ -39,6 +39,7 @@
                     <th>Gender</th>                    
                     <th>Email</th>
                     <th>Eliminar</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +56,15 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger mt-3">Eliminar Usuario</button>
-                         </form>     
+                         </form>
+                         </td>
+                         <td>
+                            <form action="{{ route('users.edit', ['user' => $user->id]) }}" method="put">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger mt-3">Editar Usuario</button>
+                          </form>
+                          </td>           
                     </tr>
                 @endforeach
             </tbody>
