@@ -4,21 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\Autenticacion;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
-
 
     Route::get('/', function () {
         return view('inicio');
@@ -28,9 +15,10 @@ use App\Http\Middleware\Autenticacion;
         return view('home');
     });//->middleware(Autenticacion::class);
 
-    Route::get('/users', function(){
-        return view('users');
-    });
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/list', [UserController::class, 'ListAllUsers'])->name('users.userslist');
+    Route::get('/users', [UserController::class, 'ListUser'])->name('users.user');
+
 
     Route::get('/posts', function(){
         return view('posts');
