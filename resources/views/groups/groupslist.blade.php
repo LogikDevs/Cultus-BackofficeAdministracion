@@ -38,8 +38,8 @@
                     <th>Fotos</th>
                     <th>Privacidad</th>                    
                     <th>Creado</th>
-                    <th>Eliminar</th>
                     <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,12 +52,19 @@
                         <td>{{ $group->privacy}}</td>
                         <td>{{ $group->created_at }}</td>
                         <td> 
-                        <form action="{{ route('groups.destroy', ['group' => $group->id_group]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este grupo?');">
+                             <form action="{{ route('groups.edit', ['group' => $group->id_group]) }}" method="put">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger mt-3">Editar Grupo</button>
+                            </form>
+                            </td>
+                            <td>
+                            <form action="{{ route('groups.destroy', ['group' => $group->id_group]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este grupo?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
-                         </form>
-                         </td>  
+                            </form>
+                            </td> 
                     </tr>
                 @endforeach
             </tbody>
