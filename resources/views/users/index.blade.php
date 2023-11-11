@@ -5,5 +5,6 @@
     <ul>
         <li><a href="{{ route('users.userslist') }}">Listar Todos los Usuarios</a></li>
         <li><a href="{{ route('users.user') }}">Mostrar Usuario por ID</a></li>
+        <li><a href="{{ route('users.email') }}">Mostrar Usuario por Email</a></li>
     </ul>
 </nav>
