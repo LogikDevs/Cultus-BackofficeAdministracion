@@ -12,7 +12,7 @@ class EventsFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'text' => $this->faker->paragraph(),
+            'text' => $this->faker->sentence(),
             'start_date' => $this->faker->dateTime(),
             'end_date' => $this->faker->dateTime(),
             'private' => $this->faker->boolean
