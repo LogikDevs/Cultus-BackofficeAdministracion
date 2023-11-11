@@ -95,11 +95,17 @@
                     <p class="group-no-image">No hay imagen disponible.</p>
                 @endif
             </div>
+            <form action="{{ route('groups.edit', ['group' => $group->id_group]) }}" method="put">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger mt-3">Editar Grupo</button>
+                </form>
             <form action="{{ route('groups.destroy', ['group' => $group->id_group]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Grupo?');">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
             </form>
+            
         </div>
        @endif
     </div>
