@@ -45,13 +45,19 @@
             <tbody>
                 @foreach ($groups as $group)
                     <tr>
-                        <td>{{ $group->id }}</td>
+                        <td>{{ $group->id_group }}</td>
                         <td>{{ $group->name }}</td>
                         <td>{{ $group->description }}</td>
                         <td>{{ $group->picture}}</td>
                         <td>{{ $group->privacy}}</td>
                         <td>{{ $group->created_at }}</td>
-                        <td>  
+                        <td> 
+                        <form action="{{ route('groups.destroy', ['group' => $group->id_group]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este grupo?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
+                         </form>
+                         </td>  
                     </tr>
                 @endforeach
             </tbody>
