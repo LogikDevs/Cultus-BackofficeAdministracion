@@ -24,4 +24,9 @@ class GroupController extends Controller
         return view('groups.index');
        }
     
+        public function destroy(groups $group){
+          $group->delete();
+          return view('groups.index')->with('success', 'Grupo eliminado exitosamente');
+          }   
+   
 }
