@@ -17,9 +17,9 @@ use App\Http\Middleware\Autenticacion;
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/list', [UserController::class, 'ListAllUsers'])->name('users.userslist');
-    Route::get('/users', [UserController::class, 'ListUser'])->name('users.user');
+    Route::get('/user', [UserController::class, 'ListUser'])->name('users.user');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-
+    Route::get('/users/email', [UserController::class, 'ListUserMail'])->name('users.email');
 
     Route::get('/posts', function(){
         return view('posts');
