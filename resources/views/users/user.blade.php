@@ -96,6 +96,12 @@
                 @else
                     <p class="usuario-no-image">No hay imagen de perfil disponible.</p>
                 @endif
+            
+                <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger mt-3">Eliminar Usuario</button>
+            </form>     
             </div>
         </div>
        @endif
