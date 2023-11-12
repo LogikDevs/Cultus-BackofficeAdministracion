@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\groups;
+use App\Models\user;
 class GroupController extends Controller
 {
     public function ListAllGroups(){
@@ -44,5 +45,10 @@ class GroupController extends Controller
         $group->privacy = $request->privacy;
         $group->save();
         return view('groups.index')->with('success', 'Grupo actualizado exitosamente');
+    }
+
+    public function GroupIntegrates(groups $group){
+        $users = $group->users()->paginate(30);
+        return view('users.userslist', compact('users'));  
     }
 }
