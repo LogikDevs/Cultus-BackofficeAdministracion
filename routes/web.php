@@ -4,21 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 use App\Http\Middleware\Autenticacion;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
-
 
     Route::get('/', function () {
         return view('inicio');
@@ -28,9 +16,26 @@ use App\Http\Middleware\Autenticacion;
         return view('home');
     });//->middleware(Autenticacion::class);
 
-    Route::get('/users', function(){
-        return view('users');
-    });
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/list', [UserController::class, 'ListAllUsers'])->name('users.userslist');
+    Route::get('/user', [UserController::class, 'ListUser'])->name('users.user');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/users/email', [UserController::class, 'ListUserMail'])->name('users.email');
+    Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
+    
+    Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
+    Route::get('/groups/list', [GroupController::class, 'ListAllGroups'])->name('groups.groupslist');    
+    Route::get('/groups/listone', [GroupController::class, 'ListGroup'])->name('groups.group');
+    Route::get('/groups/listuser', [GroupController::class, 'ListUserGroup'])->name('groups.usergroup');
+    Route::get('/groups/listpost', [GroupController::class, 'ListPostGroup'])->name('groups.postgroup');
+    Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
+    Route::get('/groups/edit/{group}', [GroupController::class, 'edit'])->name('groups.edit');
+    Route::get('/groups/update/{group}', [GroupController::class, 'update'])->name('groups.update');
+    Route::get('/integrates/{group}', [GroupController::class, 'GroupIntegrates'])->name('groups.integrates');
+
+
+
 
     Route::get('/posts', function(){
         return view('posts');
@@ -40,9 +45,7 @@ use App\Http\Middleware\Autenticacion;
         return view('events');
     });
 
-    Route::get('/groups', function(){
-        return view('groups');
-    });
+  
 
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'Register']);

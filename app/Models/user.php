@@ -33,4 +33,9 @@ class user extends Authenticatable
         return $this->belongsToMany(interest::class, 'likes', 'id_user', 'id_interest')->whereNull('likes.deleted_at');
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'integrates', 'id_user', 'id_group');
+    }
+
 }
