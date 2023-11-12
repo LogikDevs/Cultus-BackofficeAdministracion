@@ -40,6 +40,7 @@
                     <th>Creado</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
+                    <th>Integrantes</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,6 +66,13 @@
                             <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
                             </form>
                             </td> 
+                            <td>
+                            <form action="{{ route('groups.integrates', ['group' => $group->id_group]) }}" method="get">
+                                @csrf
+                                @method('GET')
+                                <button type="submit">Integrantes del Grupo</button>
+                            </form>
+                            </td>
                     </tr>
                 @endforeach
             </tbody>
