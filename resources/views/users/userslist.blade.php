@@ -43,6 +43,7 @@
                 </tr>
             </thead>
             <tbody>
+            @if($users)
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
@@ -68,9 +69,11 @@
                     </tr>
                 @endforeach
             </tbody>
+            
         </table>
 
-        {{ $users->links() }}        
+        {{ $users->links() }}  
+        @endif      
     </div>
 @endsection
 

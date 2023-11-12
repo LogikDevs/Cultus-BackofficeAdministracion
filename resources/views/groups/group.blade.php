@@ -106,6 +106,11 @@
                 <button type="submit" class="btn btn-danger mt-3">Eliminar Grupo</button>
             </form>
             
+            <form action="{{ route('groups.integrates', ['group' => $group->id_group]) }}" method="get">
+                @csrf
+                @method('GET')
+                <button type="submit">Integrantes del Grupo</button>
+            </form>
         </div>
        @endif
     </div>
