@@ -52,6 +52,7 @@
                     <th>Age</th>
                     <th>Gender</th>                    
                     <th>Email</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
@@ -64,6 +65,13 @@
                         <td>{{ $user->age}}</td>
                         <td>{{ $user->gender}}</td>
                         <td>{{ $user->email }}</td>
+                        <td>
+                            <form action="{{ route('users.edit', ['user' => $user->id]) }}" method="put">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger mt-3">Editar Usuario</button>
+                          </form>
+                          </td>      
                         <td>
                         <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                             @csrf
