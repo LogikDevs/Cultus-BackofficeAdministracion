@@ -32,7 +32,7 @@ use App\Http\Middleware\Autenticacion;
     Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
     Route::get('/groups/edit/{group}', [GroupController::class, 'edit'])->name('groups.edit');
     Route::get('/groups/update/{group}', [GroupController::class, 'update'])->name('groups.update');
-
+    Route::get('/integrates/{group}', [GroupController::class, 'GroupIntegrates'])->name('groups.integrates');
 
 
 
