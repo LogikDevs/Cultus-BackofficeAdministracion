@@ -11,7 +11,7 @@ class MultimediaPostFactory extends Factory
     public function definition()
     {
         return [
-            'fk_id_post' => Post::all()->random()->id_post,
+            'fk_id_post' =>  \App\Models\Post::factory(),
             'multimediaLink' => 'public/post/images'
         ];
     }

@@ -12,8 +12,8 @@ class ParticipantsFactory extends Factory
     public function definition()
     {
         return [
-            'fk_id_event' => Events::all()->random()->id,
-            'fk_id_user' => User::all()->random()->id,
+            'fk_id_event' => \App\Models\Events::factory(),
+            'fk_id_user' => \App\Models\user::factory(),
             'rol' => $this->faker->randomElement(['follower', 'moderator', 'admin'])
         ];
     }
