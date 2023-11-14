@@ -12,8 +12,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'fk_id_user' => random_int(1, 10),
-            'fk_id_event' => random_int(1, 10),
+            'fk_id_user' =>  \App\Models\user::factory(),
+            'fk_id_event' =>  \App\Models\Events::factory(),
             'text' => $this->faker->paragraph(255),
             'latitud' => $this->faker->latitude(),
             'longitud' => $this->faker->longitude(),

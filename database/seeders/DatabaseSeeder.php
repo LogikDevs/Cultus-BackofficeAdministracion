@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(followsSeeder::class);
         $this->call(EventsSeeder::class);
         $this->call(EventInterestsSeeder::class);
-        $this->call(ParticipantsSeeder::class); 
+        $this->call(ParticipantsSeeder::class);
+        $this->call(chatSeeder::class); 
         $this->call(groupsSeeder::class);
         $this->call(integratesSeeder::class);
         $this->call(PostSeeder::class);

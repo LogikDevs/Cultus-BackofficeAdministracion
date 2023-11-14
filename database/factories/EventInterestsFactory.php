@@ -13,8 +13,8 @@ class EventInterestsFactory extends Factory
     public function definition()
     {
         return [
-            'fk_id_event' => Events::all()->random()->id,
-            'fk_id_label' => interest::all()->random()->id_label
+            'fk_id_event' => \App\Models\Events::factory(),
+            'fk_id_label' => \App\Models\interest::factory()
         ];
     }
 }

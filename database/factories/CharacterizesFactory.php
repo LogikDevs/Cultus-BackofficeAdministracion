@@ -13,8 +13,8 @@ class CharacterizesFactory extends Factory
     public function definition()
     {
         return [
-            'fk_id_post' => Post::all()->random()->id_post,
-            'fk_id_label' => interest::all()->random()->id_label
+            'fk_id_post' =>  \App\Models\post::factory(),
+            'fk_id_label' =>  \App\Models\interest::factory()
         ];
     }
 }
