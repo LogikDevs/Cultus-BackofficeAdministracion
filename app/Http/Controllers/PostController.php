@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function ListAllPosts(Request $request) {
-        $posts = Post::with('user')->paginate(3);
-        return view('postslist', compact('posts'));
+        $posts = Post::with('user')->paginate(30);
+        return view('posts.list', compact('posts'));
     }
     
     public function ListOnePost($id_post) {
