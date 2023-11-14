@@ -37,14 +37,20 @@ use App\Http\Middleware\Autenticacion;
 
 
 
-    Route::get('/posts', function(){
-        return view('posts');
-    });
+    Route::get('/posts', function(){return view('posts.index');})->name('posts.index');
+    Route::get('/posts/list', [PostController::class, 'ListAllPosts'])->name('posts.list');
+    Route::get('/posts/post', [PostController::class, 'ListOnePost'])->name('posts.post');
+    Route::get('/posts/search', [PostController::class, 'ListPostText'])->name('posts.search');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::get('/posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
+    Route::get('/posts/update/{post}', [PostController::class, 'update'])->name('posts.update');
 
-    Route::get('/events', function(){
-        return view('events');
-    });
-
+    Route::get('/posts/listuser', [PostController::class, 'ListUserPosts'])->name('posts.userposts');
+    Route::get('/posts/listgroup', [PostController::class, 'ListGroupPosts'])->name('posts.groupposts');
+    Route::get('/posts/listevent', [PostController::class, 'ListEventPosts'])->name('posts.eventposts');
+    Route::get('/posts/listcomment', [PostController::class, 'ListCommentPosts'])->name('posts.commentposts');
+    
+    
   
 
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
@@ -56,8 +62,5 @@ use App\Http\Middleware\Autenticacion;
 
 
     
-    Route::get('/posts/list', [PostController::class, 'ListAllPosts'])->name('postslist');
-    Route::post('/posts/list', [PostController::class, 'ListAllPosts']);
-    Route::get('/posts/list', [PostController::class, 'ListAllPosts']);
-    Route::get('/posts/listone', [PostController::class, 'ListOnePost']);
+
     Route::get('/posts/listuser', [PostController::class, 'login']);
