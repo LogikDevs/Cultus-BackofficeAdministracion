@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\chat;
 class groupsSeeder extends Seeder
 {
     public function run()
@@ -12,6 +12,13 @@ class groupsSeeder extends Seeder
             "id_group" => "1",
             "name" => "grupoTest",
         ]);
-        \App\Models\groups::factory()->count(100)->create();      
+        \App\Models\groups::factory()->create([
+            "id_group" => "100",
+            "id_chat" => "100",
+        ]);
+        \App\Models\groups::factory()
+        ->has(Chat::factory(), 'id_chat')
+        ->count(100)
+        ->create();      
     }
 }
