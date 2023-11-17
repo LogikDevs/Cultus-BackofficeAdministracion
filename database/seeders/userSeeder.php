@@ -30,6 +30,16 @@ class userSeeder extends Seeder
                 'password' => Hash::make("12345678")
             ]);
         }
+        Client::create([
+            'id' => 100,
+            'name' => 'Tests',
+            'secret' => "wsBa0mp4jwSTYssUGHX5xoqD9IC0X95Gfpg0w3uY",
+            'redirect' => 'http://localhost',
+            'provider' => 'users',
+            'personal_access_client' => false,
+            'password_client' => true,
+            'revoked' => false
+        ]);
 
     }
 }
