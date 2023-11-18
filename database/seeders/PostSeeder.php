@@ -16,8 +16,7 @@ class PostSeeder extends Seeder
             'fk_id_user' => 1,
             'fk_id_event' => 1,
             'text' => 'HOLIWI',
-            'latitud' => '2352626',
-            'longitud' => '57568568',
+            'location' => 1,
             'date' => date('d-m-y H:i')
         ]);
 
